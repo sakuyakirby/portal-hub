@@ -1,0 +1,106 @@
+:root {
+    --primary: #0ff;
+    --bg: #0a0a0c;
+    --card-bg: #1a1a20;
+    --text: #e0e0e0;
+    --accent: #ff0055;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    height: 100vh;
+}
+
+/* サイドバー */
+nav {
+    width: 80px;
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+    border-right: 1px solid #333;
+}
+
+.nav-item {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 25px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    transition: 0.3s all ease;
+    background: #1a1a1a;
+    font-size: 24px;
+}
+
+.nav-item:hover {
+    transform: scale(1.1);
+    background: #333;
+}
+
+.nav-item.active {
+    background: var(--primary);
+    box-shadow: 0 0 20px var(--primary);
+    color: #000;
+}
+
+/* メインエリア */
+main {
+    flex: 1;
+    padding: 40px;
+    overflow-y: auto;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: var(--primary);
+    text-shadow: 0 0 10px rgba(0,255,255,0.5);
+    margin-top: 0;
+}
+
+.app-container {
+    display: none;
+    animation: fadeIn 0.4s ease-out;
+}
+
+.app-container.active {
+    display: block;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid #333;
+    line-height: 1.6;
+}
+
+/* To-Doスタイル */
+.todo-box { display: flex; gap: 10px; margin-bottom: 20px; }
+input { flex: 1; padding: 10px; border-radius: 5px; border: none; background: #222; color: #fff; }
+button { padding: 10px 20px; background: var(--primary); border: none; border-radius: 5px; cursor: pointer; font-weight: bold; }
+
+/* メモスタイル */
+textarea {
+    width: 100%;
+    height: 300px;
+    background: #111;
+    color: #fff;
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 16px;
+    resize: none;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateX(20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
